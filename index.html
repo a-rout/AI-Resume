@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Portfolio of Ashutosh Rout, a Senior SAP ABAP Developer specializing in S/4HANA, RAP, OData, and Clean Core extensibility.">
+  <meta name="author" content="Ashutosh Rout">
   <title>Ashutosh Rout - SAP ABAP Developer</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"
@@ -41,7 +44,7 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 1000;
-      opacity: 0.4;
+      opacity: 0.18;
     }
 
     header {
@@ -83,19 +86,30 @@
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -1px;
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0px;
+      color: var(--ink);
     }
 
     h1 em {
-      font-style: italic;
-      color: var(--accent);
+      font-style: normal;
+      color: var(--ink);
+    }
+
+
+    .header-designation {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 8px;
     }
 
     .header-sub {
-      color: var(--muted);
+      color: #3d3830;
       font-size: 15px;
       margin-top: 12px;
       padding: 0 24px;
@@ -115,7 +129,7 @@
     }
 
     .contact-info a {
-      color: var(--ink);
+      color: var(--muted);
       text-decoration: none;
       border-bottom: 1px solid var(--muted);
       transition: all 0.2s;
@@ -138,7 +152,6 @@
       padding: 0 48px;
       border-bottom: 1px solid #d4cfc6;
       background: var(--light);
-      overflow-x: auto;
     }
 
     .nav-btn {
@@ -158,6 +171,12 @@
     }
 
     .nav-btn:hover {
+      color: var(--ink);
+    }
+
+    .nav-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -2px;
       color: var(--ink);
     }
 
@@ -205,7 +224,7 @@
       margin: 0 auto 48px auto;
       max-width: 600px;
       line-height: 1.6;
-      text-align: center;
+      text-align: justify;
     }
 
     /* Summary Section */
@@ -215,7 +234,7 @@
       color: var(--ink);
       max-width: 900px;
       margin: 0 auto 48px auto;
-      text-align: center;
+      text-align: justify;
     }
 
     .summary-text strong {
@@ -273,6 +292,7 @@
       font-size: 14px;
       line-height: 1.6;
       color: var(--muted);
+      text-align: justify;
     }
 
     /* Systems grid for Skills */
@@ -531,6 +551,105 @@
         justify-content: flex-start;
       }
     }
+
+    /* ── Tablet breakpoint (600px – 900px) ── */
+    @media (max-width: 768px) {
+      header {
+        padding: 40px 32px 32px;
+      }
+
+      .section {
+        padding: 36px 32px;
+      }
+
+      .nav {
+        padding: 0 16px;
+        justify-content: flex-start;
+      }
+
+      .nav-btn {
+        padding: 14px 16px;
+        font-size: 10px;
+      }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .systems-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .exp-role {
+        font-size: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .detail-section {
+        grid-template-columns: 1fr;
+      }
+
+      .edu-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* ── Print / Save as PDF ── */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body::before {
+        display: none;
+      }
+
+      nav.nav {
+        display: none !important;
+      }
+
+      .section {
+        display: block !important;
+        padding: 32px 0;
+        page-break-inside: avoid;
+        animation: none !important;
+      }
+
+      .section+.section {
+        border-top: 1px solid #d4cfc6;
+      }
+
+      header {
+        padding: 32px 0 24px;
+        border-bottom: 2px solid #1a1714;
+      }
+
+      main {
+        padding: 0 32px;
+      }
+
+      .detail-section {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .project-box {
+        break-inside: avoid;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .contact-info a::after {
+        content: ' (' attr(href) ')';
+        font-size: 10px;
+        color: var(--muted);
+      }
+    }
   </style>
 </head>
 
@@ -539,477 +658,532 @@
   <header>
     <div class="header-left">
       <div class="header-tag">Curriculum Vitae · 2026</div>
-      <h1>Ashutosh<br><em>Rout</em></h1>
-      <p class="header-sub">SAP ABAP Developer with 5+ years of experience delivering enterprise-grade solutions across
-        complex SAP landscapes in automotive and pharmaceutical industries.</p>
+      <h1>Ashutosh Rout</h1>
+      <p class="header-designation">SAP ABAP Developer</p>
     </div>
     <div class="contact-info">
       <div class="contact-item"><span>📌</span> Hyderabad, India</div>
-      <div class="contact-item"><span>✉️</span> <a href="mailto:my_email@gmail.com">my_email@gmail.com</a></div>
+      <div class="contact-item"><span>✉️</span> <a href="mailto:ashutosh.rout@gmail.com">ashutosh.rout@gmail.com</a>
+      </div>
       <div class="contact-item"><span>📞</span> +91-XXXXXXXXXX</div>
-      <div class="contact-item"><span>🔗</span> <a href="#" target="_blank">[LinkedIn Profile]</a></div>
     </div>
   </header>
 
-  <nav class="nav">
-    <button class="nav-btn active" onclick="showSection('summary')">Summary</button>
-    <button class="nav-btn" onclick="showSection('skills')">Skills Map</button>
-    <button class="nav-btn" onclick="showSection('experience')">Experience Log</button>
-    <button class="nav-btn" onclick="showSection('education')">Education & More</button>
+  <nav class="nav" role="tablist" aria-label="Resume sections">
+    <button class="nav-btn active" role="tab" aria-selected="true" aria-controls="summary" id="tab-summary"
+      onclick="showSection('summary', this)">Summary</button>
+    <button class="nav-btn" role="tab" aria-selected="false" aria-controls="skills" id="tab-skills"
+      onclick="showSection('skills', this)">Skills</button>
+    <button class="nav-btn" role="tab" aria-selected="false" aria-controls="experience" id="tab-experience"
+      onclick="showSection('experience', this)">Experience</button>
+    <button class="nav-btn" role="tab" aria-selected="false" aria-controls="education" id="tab-education"
+      onclick="showSection('education', this)">Education & More</button>
   </nav>
 
-  <!-- SUMMARY -->
-  <section class="section active" id="summary">
-    <h2>Professional Summary</h2>
-    <div class="summary-text">
-      <p>My journey spans R/3 through ECC and into greenfield S/4HANA implementation projects, where I've led
-        development workstreams across Finance, Sales, Procurement, and Warehouse Management. I specialize in building
-        scalable, secure, and reusable architectures using modern SAP technologies — <strong>RAP, OData V4, CDS, and
-          Clean Core extensibility</strong> — with a strong commitment to code quality and long-term maintainability.
-        Consistently recognized for delivery excellence and technical leadership across multiple organizations.</p>
-    </div>
-
-    <h2>Design Approach</h2>
-    <p class="section-intro">Build reusable frameworks, enforce Clean Core compliance, treat code review as craft — and
-      write code so intuitive the next developer can hit the ground running without a single walkthrough. Relentlessly
-      optimizes personal setups and experiments with Claude Code-powered AI workflows.</p>
-
-    <div class="summary-grid">
-      <div class="summary-card">
-        <h3>S/4HANA Mastery</h3>
-        <p>Advanced proficiency in RAP, OData V4, CDS View Entities, AMDP, Fiori Elements, Clean Core.</p>
+  <main>
+    <!-- SUMMARY -->
+    <section class="section active" id="summary" role="tabpanel" aria-labelledby="tab-summary">
+      <h2>Professional Summary</h2>
+      <div class="summary-text">
+        <p>SAP ABAP Developer with <strong>5+ years of experience</strong> delivering enterprise-grade solutions across
+          complex SAP landscapes in the automotive and pharmaceutical industries. My journey spans R/3 through ECC and
+          into greenfield S/4HANA implementation projects, where I've led development workstreams across Finance, Sales,
+          Procurement, and Warehouse Management. I specialize in building scalable, secure, and reusable architectures
+          using modern SAP technologies — <strong>RAP, OData V4, CDS, and Clean Core extensibility</strong> — with a
+          strong commitment to code quality and long-term maintainability. Consistently recognized for delivery
+          excellence and technical leadership across multiple organizations.</p>
       </div>
-      <div class="summary-card">
-        <h3>Object-Oriented Design</h3>
-        <p>Deep expertise in OO-ABAP classes, interfaces, inheritance, and design by contract.</p>
-      </div>
-      <div class="summary-card">
-        <h3>Integration Leader</h3>
-        <p>Architected seamless system integrations using ALE/IDocs, Kafka real-time integration, and SAP CPI.</p>
-      </div>
-      <div class="summary-card">
-        <h3>AI Enthusiast</h3>
-        <p>Leverages Joule for Developers, Claude Code-powered workflows, and AI-Assisted development models.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- SKILLS -->
-  <section class="section" id="skills">
-    <h2>Technical Arsenal</h2>
-    <p class="section-intro">Detailed skill modules exactly mapped to core focus areas within the SAP ecosystem.</p>
+      <h2>Design Approach</h2>
+      <p class="section-intro">Build reusable frameworks, enforce Clean Core compliance, treat code review as craft —
+        and
+        write code so intuitive the next developer can hit the ground running without a single walkthrough. Relentlessly
+        optimizes personal setups and experiments with Claude Code-powered AI workflows.</p>
 
-    <div class="systems-grid">
-      <!-- Mapped precisely from example35.md categories -->
-      <div class="system-card">
-        <div class="sys-name">S/4 HANA & Modern ABAP</div>
-        <div class="sys-meta">
-          <span>RAP (Managed & Unmanaged)</span><span>CDS View Entities</span><span>Virtual Elements & SADL
-            Exits</span><span>AMDP</span><span>OData V2/V4</span><span>Custom Entities</span><span>Fiori
-            Elements</span><span>BRF+</span><span>Flexible Workflow</span><span>Clean Core (Key User & In-App
-            Extensibility)</span>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <h3>S/4HANA & Modern ABAP</h3>
+          <p>Hands-on experience with RAP, OData V4, CDS View Entities, AMDP, Fiori Elements, and Clean Core
+            extensibility across greenfield and AMS projects.</p>
+        </div>
+        <div class="summary-card">
+          <h3>OData & API Development</h3>
+          <p>Built production-grade OData V4 services via RAP with virtual elements, SADL-managed paging, and lambda
+            operators. Experienced in OData V2 Deep Entity and Expanded Entity Sets for UI5 integration.</p>
+        </div>
+        <div class="summary-card">
+          <h3>Object-Oriented ABAP</h3>
+          <p>Solid command of OO-ABAP — classes, interfaces, inheritance, abstract classes, and design by contract —
+            applied consistently to build modular, reusable, and maintainable solutions.</p>
+        </div>
+        <div class="summary-card">
+          <h3>ALE/IDoc & System Integration</h3>
+          <p>Worked extensively with ALE/IDoc architecture (INVOIC, MATMAS, COELEM, Exchange Rate), SAP CPI, RFC/BAPI,
+            and Kafka real-time integration across both ECC and S/4HANA landscapes.</p>
+        </div>
+        <div class="summary-card">
+          <h3>Code Quality & Clean Core</h3>
+          <p>Enforces ATC checks, peer code reviews, and strict transport sequencing discipline. Strong advocate for
+            Clean Core compliance — preferring Key User and In-App extensibility over modifications.</p>
+        </div>
+        <div class="summary-card">
+          <h3>AI-Assisted Development</h3>
+          <p>Actively integrates AI tools into daily development workflows — for code documentation, legacy code
+            analysis, flowchart generation, and accelerating routine ABAP tasks.</p>
         </div>
       </div>
+    </section>
 
-      <div class="system-card">
-        <div class="sys-name">Core ABAP</div>
-        <div class="sys-meta">
-          <span>OO-ABAP (Classes, Interfaces, Inheritance, Abstract Classes, Design by Contract)</span><span>Error
-            handling</span><span>Enhancement Framework (BAdIs, User Exits, BTE, Enhancement Spots)</span><span>Adobe
-            Forms</span><span>ABAP NW 7.58+ Syntax</span>
+    <!-- SKILLS -->
+    <section class="section" id="skills" role="tabpanel" aria-labelledby="tab-skills">
+      <h2>Skills</h2>
+      <p class="section-intro">Detailed skill modules exactly mapped to core focus areas within the SAP ecosystem.</p>
+
+      <div class="systems-grid">
+
+        <div class="system-card">
+          <div class="sys-name">S/4HANA & Modern ABAP</div>
+          <div class="sys-meta">
+            <span>RAP (Managed &amp; Unmanaged)</span><span>CDS View Entities</span><span>ABAP NW 7.58+
+              Syntax</span><span>OData V2/V4</span><span>Custom Entities</span><span>Virtual Elements &amp; SADL
+              Exits</span><span>AMDP</span><span>Fiori Elements</span><span>Analytical List Reports (RAP/Fiori
+              Elements)</span><span>BRF+</span><span>Flexible Workflow</span><span>Clean Core (Key User &amp; In-App
+              Extensibility)</span>
+          </div>
         </div>
+
+        <div class="system-card">
+          <div class="sys-name">Core ABAP</div>
+          <div class="sys-meta">
+            <span>OO-ABAP (Classes, Interfaces, Inheritance, Abstract Classes, Design by Contract)</span><span>ABAP
+              Dictionary (Tables, Views, Structures, Search Helps, Lock Objects, Domains)</span><span>SQL / Open
+              SQL</span><span>Classical Reports &amp; ALV</span><span>Enhancement Framework (BAdIs, User Exits, BTE,
+              Enhancement Spots)</span><span>Complex Adobe Forms (with Email &amp; Dynamic
+              Content)</span><span>Exception Handling (Class-based)</span>
+          </div>
+        </div>
+
+        <div class="system-card">
+          <div class="sys-name">Integration & APIs</div>
+          <div class="sys-meta">
+            <span>OData (Deep Entity, Expanded Entity Sets)</span><span>SAP Released APIs</span><span>Custom API
+              Development</span><span>SAP CPI</span><span>SOAP/REST APIs</span><span>ALE/IDocs (INVOIC, MATMAS, COELEM,
+              Exchange Rate)</span><span>RFC &amp; BAPI</span><span>Kafka Real-Time Integration</span><span>AIF (IDoc
+              Monitoring)</span><span>SAP Gateway Client</span><span>Postman</span><span>SOAP UI</span>
+          </div>
+        </div>
+
+        <div class="system-card">
+          <div class="sys-name">Security & Auth</div>
+          <div class="sys-meta">
+            <span>RAP Auth Objects</span><span>DCL (Row-level)</span><span>PFCG Roles</span><span>Secure API
+              Design</span>
+          </div>
+        </div>
+
+        <div class="system-card">
+          <div class="sys-name">Quality & Testing</div>
+          <div class="sys-meta">
+            <span>ATC Checks</span><span>Code Inspector (SCI)</span><span>ABAP Unit Testing</span><span>Peer Code
+              Reviews</span><span>SAT Runtime Analysis</span><span>ST05 SQL Trace</span><span>ABAP Debugging
+              (Breakpoints, Watchpoints, Debugger Scripting)</span><span>ST22 Dump Analysis</span>
+          </div>
+        </div>
+
+        <div class="system-card">
+          <div class="sys-name">DevOps & Tooling</div>
+          <div class="sys-meta">
+            <span>Eclipse ADT</span><span>abapGit</span><span>Cloud ALM</span><span>Transport Mgmt
+              (CTS)</span><span>SPAU/SPDD (Modification Adjustment)</span><span>SAP Note
+              Implementation</span><span>Jira</span><span>Confluence</span><span>ServiceNow (ITSM)</span><span>VS
+              Code</span><span>AutoHotkey</span><span>Power Automate</span><span>Copilot</span><span>MS Office
+              365</span>
+          </div>
+        </div>
+
+        <div class="system-card">
+          <div class="sys-name">SAP Modules</div>
+          <div class="sys-meta">
+            <span>RTR (Financial Accounting)</span><span>FSCM (Credit Management)</span><span>PTP (Materials
+              Management)</span><span>OTC (Sales &amp; Distribution)</span><span>EWM (Extended Warehouse
+              Mgt)</span><span>MDG</span>
+          </div>
+        </div>
+
+        <div class="system-card">
+          <div class="sys-name">Methodologies & Platforms</div>
+          <div class="sys-meta">
+            <span>SAP Activate</span><span>Agile (Scrum)</span><span>Waterfall</span><span>SAP BTP
+              (exposure)</span><span>CAP (learning)</span><span>Joule for Developers</span><span>AI-Assisted
+              Development</span>
+          </div>
+        </div>
+
+        <div class="system-card">
+          <div class="sys-name">Functional Domain Knowledge</div>
+          <div class="sys-meta">
+            <span>BTE-driven FI Validations</span><span>FSCM Credit Management</span><span>IDoc-driven Finance
+              Automation</span><span>Output Determination</span><span>Year-End Closing Support</span><span>MM Pricing
+              Conditions</span><span>Financial Accounting (FI)</span><span>Materials Management (MM)</span>
+          </div>
+        </div>
+
       </div>
+    </section>
 
-      <div class="system-card">
-        <div class="sys-name">Integration & APIs</div>
-        <div class="sys-meta">
-          <span>ALE/IDocs (INVOIC, MATMAS, COELEM)</span><span>OData (Deep Entity, Expanded Entity Sets)</span><span>SAP
-            CPI</span><span>SOAP/REST APIs</span><span>Custom API Development</span><span>Kafka Real-Time
-            Integration</span><span>AIF</span>
-        </div>
-      </div>
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience" role="tabpanel" aria-labelledby="tab-experience">
+      <h2>Experience</h2>
+      <p class="section-intro">Strict timeline mapping of roles, responsibilities, and key project executions segregated
+        by organization.</p>
 
-      <div class="system-card">
-        <div class="sys-name">Security & Auth</div>
-        <div class="sys-meta">
-          <span>DCL (Row-level)</span><span>RAP Auth Objects</span><span>PFCG Roles</span><span>Secure API Design</span>
-        </div>
-      </div>
-
-      <div class="system-card">
-        <div class="sys-name">Quality & Testing</div>
-        <div class="sys-meta">
-          <span>ABAP Unit Testing</span><span>ATC Checks</span><span>Code Inspector (SCI)</span><span>SAT Runtime
-            Analysis</span><span>ST05 SQL Trace</span><span>ST22 Dump Analysis</span><span>Peer Code Reviews</span>
-        </div>
-      </div>
-
-      <div class="system-card">
-        <div class="sys-name">DevOps & Source Control</div>
-        <div class="sys-meta">
-          <span>abapGit</span><span>Eclipse ADT</span><span>VS Code</span><span>Transport Mgmt (CTS)</span><span>Cloud
-            ALM</span><span>Jira</span><span>Confluence</span>
-        </div>
-      </div>
-
-      <div class="system-card">
-        <div class="sys-name">API & Integration Testing</div>
-        <div class="sys-meta">
-          <span>SAP Gateway Client</span><span>Postman</span><span>SOAP UI</span>
-        </div>
-      </div>
-
-      <div class="system-card">
-        <div class="sys-name">SAP Modules</div>
-        <div class="sys-meta">
-          <span>RTR (Financial Accounting)</span><span>PTP (Materials Management)</span><span>OTC (Sales &
-            Distribution)</span><span>EWM (Extended Warehouse Mgt)</span><span>MDG</span>
-        </div>
-      </div>
-
-      <div class="system-card">
-        <div class="sys-name">Programming Languages</div>
-        <div class="sys-meta">
-          <span>SAP ABAP</span><span>SQL / Open SQL</span><span>Python (Scripting & Automation)</span>
-        </div>
-      </div>
-
-      <div class="system-card">
-        <div class="sys-name">Methodologies</div>
-        <div class="sys-meta">
-          <span>Agile (Scrum)</span><span>Waterfall</span><span>SAP Activate</span>
-        </div>
-      </div>
-
-      <div class="system-card">
-        <div class="sys-name">Cloud & Learning</div>
-        <div class="sys-meta">
-          <span>SAP BTP (exposure)</span><span>CAP (learning)</span><span>Joule for Developers</span><span>AI-Assisted
-            Development</span>
-        </div>
-      </div>
-
-      <div class="system-card">
-        <div class="sys-name">Productivity & Automation</div>
-        <div class="sys-meta">
-          <span>AutoHotkey</span><span>Power Automate</span><span>MS Office 365</span><span>Copilot</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="section" id="experience">
-    <h2>Experience Log</h2>
-    <p class="section-intro">Strict timeline mapping of roles, responsibilities, and key project executions segregated
-      by organization.</p>
-
-    <!-- HCL Technologies -->
-    <div class="experience-item">
-      <div class="exp-role">
-        <span>SAP ABAP on HANA <em>Developer</em></span>
-        <div class="exp-company">HCL Technologies Ltd. | Jan 2025 – Present</div>
-      </div>
-
-      <div class="exp-overview">
-        <h3>S/4HANA Greenfield Implementation</h3>
-        <p>End-to-end S/4HANA build across four workstreams (RTR, OTC, PTP, EWM, MDM). Designing reusable RICEFW
-          frameworks with Clean Core compliance. Leading internal AI adoption and conducting code reviews for the
-          development team.</p>
-      </div>
-
-      <div class="detail-section">
-        <div class="project-box">
-          <h4>Record to Report (RTR)</h4>
-          <ul>
-            <li>Implemented financial validation framework using <strong>BTE 1120, 1710, 2040 & 2050</strong>, ensuring
-              data integrity across all posting workflows and preventing invalid documents from reaching the ledger.
-            </li>
-            <li>Built <strong>3 Fiori applications with Excel upload</strong> functionality for mass credit rating and
-              credit limit processing, replacing error-prone manual transactions and reducing processing time for
-              finance users.</li>
-            <li>Designed secure <strong>F110 payment interface</strong> that fetches the XML payment files and transmits
-              them to <strong>SAP CPI via SOAP API</strong> for bank routing, with error handling and status feedback.
-            </li>
-            <li>Developed BP Credit Segment validations for <strong>FSCM Credit Management</strong> to enforce credit
-              release strategies, control credit exposure, and prevent unauthorized transactions across business
-              partners.</li>
-            <li>Created <strong>5+ Adobe Forms</strong> with automated email delivery (Remittance, Dunning, Customer
-              Account Statement, Interest Invoice etc.), each engineered with dynamic content blocks driven by business
-              customization rules.</li>
-          </ul>
+      <!-- HCL Technologies -->
+      <div class="experience-item">
+        <div class="exp-role">
+          <span>SAP ABAP on HANA <em>Developer</em></span>
+          <div class="exp-company">HCL Technologies Ltd. | Jan 2025 – Present</div>
         </div>
 
-        <div class="project-box light">
-          <h4>Order to Cash (OTC) & Output Management</h4>
-          <ul>
-            <li>Developed multiple read-only OData V4 Web API using RAP CDS View Entities with virtual elements for
-              dynamic pricing calculation via bulk BAPI simulation, leveraging SADL-managed paging and OData V4 lambda
-              operators for cross-entity filtering on composition associations.</li>
-            <li>Programmed <strong>Output Determination Routines</strong> to intelligently segregate Individual vs.
-              Collective vs. Combined invoice processing based on customer and document type.</li>
-            <li>Extended Standard <strong>INVOIC IDoc segments</strong> with custom fields via User Exit, ensuring
-              downstream systems receive complete data without modifying the standard IDoc structure.</li>
-            <li>Implemented Ship-To Party selection enhancement during Sales Order creation, improving user experience
-              and data accuracy for multi-ship scenarios.</li>
-            <li>Designed complex <strong>Adobe Form layout for invoices</strong> with conditional rendering logic based
-              on BRF+ business rules.</li>
-          </ul>
+        <div class="exp-overview">
+          <h3>S/4HANA Greenfield Implementation</h3>
+          <p>Part of a large-scale S/4HANA greenfield go-live for a mission-critical healthcare client. End-to-end build
+            across multiple workstreams including RTR, OTC, PTP, EWM, and MDM. Designing reusable RICEFW frameworks with
+            Clean Core compliance. Leading internal AI adoption and conducting code reviews for the development team.
+          </p>
         </div>
 
-        <div class="project-box light">
-          <h4>Procure to Pay (PTP)</h4>
-          <ul>
-            <li>Deployed <strong>Flexible Workflow</strong> for PO approvals with multi-step approver logic (value-based
-              routing via BRF+ Decision Tables) and automated email notifications at each approval stage.</li>
-            <li>Implemented <strong>Key User Extensibility</strong> to extend standard Fiori apps with custom fields and
-              validation logic — zero code modification, fully Clean Core compliant, maintainable by functional team.
-            </li>
-          </ul>
-        </div>
+        <div class="detail-section">
+          <div class="project-box">
+            <h4>Record to Report (RTR)</h4>
+            <ul>
+              <li>Implemented financial validation framework using <strong>BTE 1120, 1710, 2040 & 2050</strong>,
+                ensuring
+                data integrity across all posting workflows and preventing invalid documents from reaching the ledger.
+              </li>
+              <li>Built <strong>3 Fiori applications with Excel upload</strong> functionality for mass credit rating and
+                credit limit processing, replacing error-prone manual transactions and reducing processing time for
+                finance users.</li>
+              <li>Designed secure <strong>F110 payment interface</strong> that fetches the XML payment files and
+                transmits
+                them to <strong>SAP CPI via SOAP API</strong> for bank routing, with error handling and status feedback.
+              </li>
+              <li>Developed BP Credit Segment validations for <strong>FSCM Credit Management</strong> to enforce credit
+                release strategies, control credit exposure, and prevent unauthorized transactions across business
+                partners.</li>
+              <li>Created <strong>5+ complex Adobe Forms</strong> with automated email delivery (Remittance, Dunning,
+                Customer
+                Account Statement, Interest Invoice etc.), each engineered with dynamic content blocks driven by
+                business customization rules.</li>
+            </ul>
+          </div>
 
-        <div class="project-box">
-          <h4>Extended Warehouse Management (EWM)</h4>
-          <ul>
-            <li>Configured <strong>PPF (Post Processing Framework)</strong> to trigger automated Adobe Form printing on
-              warehouse events (delivery confirmation, goods issue).</li>
-            <li>Implemented <strong>PPF Action Filter BAdIs</strong> with custom business logic to control precisely
-              which documents trigger print output, reducing unnecessary printing and ensuring correct form selection.
-            </li>
-          </ul>
-        </div>
+          <div class="project-box light">
+            <h4>Order to Cash (OTC) & Output Management</h4>
+            <ul>
+              <li>Developed multiple read-only OData V4 Web API using RAP CDS View Entities with virtual elements for
+                dynamic pricing calculation via bulk BAPI simulation, leveraging SADL-managed paging and OData V4 lambda
+                operators for cross-entity filtering on composition associations.</li>
+              <li>Programmed <strong>Output Determination Routines</strong> to intelligently segregate Individual vs.
+                Collective vs. Combined invoice processing based on customer and document type.</li>
+              <li>Extended Standard <strong>INVOIC IDoc segments</strong> with custom fields via User Exit, ensuring
+                downstream systems receive complete data without modifying the standard IDoc structure.</li>
+              <li>Implemented Ship-To Party selection enhancement during Sales Order creation, improving user experience
+                and data accuracy for multi-ship scenarios.</li>
+              <li>Designed complex <strong>Adobe Form layout for invoices</strong> with conditional rendering logic
+                based on BRF+ business rules.</li>
+            </ul>
+          </div>
 
-        <div class="project-box">
-          <h4>Modern ABAP, RAP & Integration Engineering</h4>
-          <ul>
-            <li>Designed and built <strong>10+ OData services</strong> (V2 with Deep Entity & Expanded Entity Sets) to
-              power custom UI5 applications, handling complex parent-child data operations with proper error
-              propagation.</li>
-            <li>Built <strong>Custom APIs via Custom Entities</strong> for unmanaged query scenarios where standard RAP
-              runtime wasn't suitable, implementing custom query logic with CDS and AMDP.</li>
-            <li>Developed <strong>6+ RAP applications:</strong> table maintenance (replacing SM30), Analytical List
-              Reports, and transactional apps with full CRUD, validations, determinations, and authorization control.
-            </li>
-            <li>Used <strong>BRF+</strong> extensively to externalize business rules from code, enabling functional
-              teams to modify approval thresholds and output conditions without developer involvement or transport
-              cycles.</li>
-          </ul>
-        </div>
+          <div class="project-box light">
+            <h4>Procure to Pay (PTP)</h4>
+            <ul>
+              <li>Deployed <strong>Flexible Workflow</strong> for PO approvals with multi-step approver logic
+                (value-based
+                routing via BRF+ Decision Tables) and automated email notifications at each approval stage.</li>
+              <li>Implemented <strong>Key User Extensibility</strong> to extend standard Fiori apps with custom fields
+                and
+                validation logic — zero code modification, fully Clean Core compliant, maintainable by functional team.
+              </li>
+            </ul>
+          </div>
 
-        <div class="project-box light">
-          <h4>Engineering Leadership & Quality</h4>
-          <ul>
-            <li>Conducting <strong>peer code reviews</strong> and technical knowledge-sharing sessions with ASM team
-              members to maintain consistent code quality standards and Clean Core compliance.</li>
-            <li>Led <strong>internal AI workshops</strong> to guide the development team on leveraging AI-assisted tools
-              for code documentation, flowchart design, legacy code analysis, and accelerating routine development.</li>
-            <li>Established <strong>deployment discipline</strong> with strict transport sequencing (Package → Workbench
-              → Customizing) and SAP Note implementation procedures including SPAU conflict resolution, achieving
-              zero-defect releases.</li>
-            <li>Mentoring 2 junior developers on ABAP best practices and debugging techniques.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+          <div class="project-box">
+            <h4>Extended Warehouse Management (EWM)</h4>
+            <ul>
+              <li>Configured <strong>PPF (Post Processing Framework)</strong> to trigger automated Adobe Form printing
+                on
+                warehouse events (delivery confirmation, goods issue).</li>
+              <li>Implemented <strong>PPF Action Filter BAdIs</strong> with custom business logic to control precisely
+                which documents trigger print output, reducing unnecessary printing and ensuring correct form selection.
+              </li>
+            </ul>
+          </div>
 
-    <!-- Accenture Solutions -->
-    <div class="experience-item">
-      <div class="exp-role">
-        <span>SAP ABAP <em>Developer</em></span>
-        <div class="exp-company">Accenture Solutions Pvt. Ltd. | Sep 2020 – Dec 2024</div>
-      </div>
+          <div class="project-box">
+            <h4>Modern ABAP, RAP & Integration Engineering</h4>
+            <ul>
+              <li>Designed and built <strong>10+ OData services</strong> (V2 with Deep Entity & Expanded Entity Sets) to
+                power custom UI5 applications, handling complex parent-child data operations with proper error
+                propagation.</li>
+              <li>Built <strong>Custom APIs via Custom Entities</strong> for unmanaged query scenarios where standard
+                RAP
+                runtime wasn't suitable, implementing custom query logic with CDS and AMDP.</li>
+              <li>Developed <strong>6+ RAP applications:</strong> table maintenance (replacing SM30), Analytical List
+                Reports, and transactional apps with full CRUD, validations, determinations, and authorization control.
+              </li>
+              <li>Used <strong>BRF+</strong> extensively to externalize business rules from code, enabling functional
+                teams to modify approval thresholds and output conditions without developer involvement or transport
+                cycles.</li>
+            </ul>
+          </div>
 
-      <div class="exp-overview">
-        <h3>ECC-to-S/4HANA Migration BMW (Sep 2024 – Dec 2024)</h3>
-        <p>Analyzed legacy R/3 landscape and prepared migration artifacts. Implemented IDoc interfaces and configured
-          AIF for the target S/4 system.</p>
-      </div>
-
-      <div class="detail-section" style="margin-bottom: 32px">
-        <div class="project-box">
-          <ul>
-            <li>Analyzed SAP ECC R/3 system processes and prepared <strong>Development Master List (DML)</strong>
-              identifying all custom objects requiring remediation or redesign for S/4HANA compatibility.</li>
-            <li>Implemented <strong>IDoc interfaces</strong> in S/4HANA for seamless master and transactional data
-              transfer from <strong>Central Finance (CFIN) & MDBB systems.</strong></li>
-            <li>Configured <strong>AIF (Application Integration Framework)</strong> to optimize IDoc processing,
-              monitoring, and error handling — replacing manual BD87 monitoring with structured exception handling.</li>
-            <li>Collaborated directly with <strong>business IT stakeholders</strong> to gather requirements, validate
-              migration readiness, and conduct integration testing.</li>
-          </ul>
+          <div class="project-box light">
+            <h4>Engineering Leadership & Quality</h4>
+            <ul>
+              <li>Conducting <strong>peer code reviews</strong> and technical knowledge-sharing sessions with ASM team
+                members to maintain consistent code quality standards and Clean Core compliance.</li>
+              <li>Led <strong>internal AI workshops</strong> to guide the development team on leveraging AI-assisted
+                tools
+                for code documentation, flowchart design, legacy code analysis, and accelerating routine development.
+              </li>
+              <li>Established <strong>deployment discipline</strong> with strict transport sequencing (Package →
+                Workbench → Customizing), including SAP Note implementation, <strong>SPAU/SPDD modification
+                  adjustment</strong> during system upgrades and patch cycles — ensuring zero conflicts post-release and
+                clean modification-free objects wherever possible.</li>
+              <li>Mentoring 2 junior developers on ABAP best practices and debugging techniques.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div class="exp-overview" style="margin-top: 48px;">
-        <h3>R/3 & S/4HANA Application Management Services BMW (Sep 2020 – Aug 2024)</h3>
-        <p>Full-cycle support and development across FI/MM. Built interfaces, high-performance reports, and monitoring
-          tools. Drove measurable operational improvements.</p>
-      </div>
-
-      <div class="detail-section">
-        <div class="project-box light">
-          <h4>Measurable Impact</h4>
-          <ul>
-            <li>Achieved <strong>60% reduction in MATMAS IDoc errors,</strong> saving <strong>8+ hours</strong> of
-              manual rework during Year-End Closing by implementing targeted data validations and monitoring automation.
-            </li>
-            <li>Refactored legacy programs using <strong>parallel cursors and optimized index access,</strong>
-              significantly improving runtime for high-volume batch jobs processing 50K+ records.</li>
-            <li>Built <strong>Sales Order History report</strong> serving <strong>50+ end users</strong> across Sales
-              Organizations, replacing fragmented manual data extraction processes.</li>
-          </ul>
+      <!-- Accenture Solutions -->
+      <div class="experience-item">
+        <div class="exp-role">
+          <span>SAP ABAP <em>Developer</em></span>
+          <div class="exp-company">Accenture Solutions Pvt. Ltd. | Sep 2020 – Dec 2024</div>
         </div>
 
-        <div class="project-box">
-          <h4>Interfaces & Real-Time Integration</h4>
-          <ul>
-            <li>Designed <strong>V2 OData services</strong> to stream SAP table data to an external <strong>Kafka
-                system</strong> for real-time analytics integration, replacing legacy batch-based data transfers.</li>
-            <li>Built <strong>SAP Extractor</strong> for automated system log monitoring (BD87, SM37), eliminating
-              manual daily checks and enabling proactive issue detection.</li>
-            <li>Developed middleware recovery report to reprocess financial documents stuck due to interface errors,
-              ensuring cross-system data consistency.</li>
-            <li>Implemented <strong>automatic invoice posting</strong> triggered by Revaluation Cockpit when condition
-              record prices change, removing manual intervention from the revaluation workflow.</li>
-          </ul>
+        <div class="exp-overview">
+          <h3>ECC-to-S/4HANA Migration BMW (Sep 2024 – Dec 2024)</h3>
+          <p>Analyzed legacy R/3 landscape and prepared migration artifacts. Implemented IDoc interfaces and used
+            AIF for IDoc monitoring in the target S/4 system.</p>
         </div>
 
-        <div class="project-box light">
-          <h4>Enhancements & Architecture</h4>
-          <ul>
-            <li>Implemented <strong>GL_ACCOUNT_MASTER_DERIVE BAdI</strong> for secondary cost element derivation during
-              COELEM IDoc processing, enabling automatic G/L account mapping from master data.</li>
-            <li>Enhanced collective revaluation program <strong>ISAUTO_RMMR1MRB</strong> via User Exit to accommodate
-              custom business logic for automated price adjustments.</li>
-            <li>Developed multiple <strong>ALV-based tools</strong> for IDoc triggering, PO analysis (EKKO/EKPO/LFA1),
-              and financial document reprocessing — designed as reusable utilities adopted across the support team.</li>
-            <li>Debugged standard and custom <strong>Fiori applications</strong> to resolve production issues, applied
-              SAP Notes, and stabilized critical applications to maintain system reliability.</li>
-          </ul>
+        <div class="detail-section" style="margin-bottom: 32px">
+          <div class="project-box">
+            <ul>
+              <li>Analyzed SAP ECC R/3 system processes and prepared <strong>Development Master List (DML)</strong>
+                identifying all custom objects requiring remediation or redesign for S/4HANA compatibility.</li>
+              <li>Implemented <strong>IDoc interfaces</strong> in S/4HANA for seamless master and transactional data
+                transfer from <strong>Central Finance (CFIN) & MDBB systems.</strong></li>
+              <li>Used <strong>AIF (Application Integration Framework)</strong> for IDoc monitoring and error tracking
+                in the target S/4 system.</li>
+              <li>Collaborated directly with <strong>business IT stakeholders</strong> to gather requirements, validate
+                migration readiness, and conduct integration testing.</li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- EDUCATION & DETAILS -->
-  <section class="section" id="education">
-    <h2>Education & Details</h2>
-    <p class="section-intro">Recognition, certifications, academic background, and additional particulars.</p>
+        <div class="exp-overview" style="margin-top: 48px;">
+          <h3>R/3 & S/4HANA Application Management Services BMW (Sep 2020 – Aug 2024)</h3>
+          <p>Full-cycle support and development across FI/MM. Built interfaces, high-performance reports, and monitoring
+            tools. Drove measurable operational improvements.</p>
+        </div>
 
-    <!-- 1. Awards — highest weightage -->
-    <div class="edu-block">
-      <div class="edu-header">
-        <h3>Awards & Recognition</h3>
-        <span class="edu-tag">Recognized with 7 awards across two organizations</span>
-      </div>
-      <div class="edu-list">
-        <div class="edu-item gold">
-          <span class="edu-marker">★</span>
-          <div><strong>2× Spot Award</strong> — HCL Technologies (greenfield hyper-care excellence)</div>
-        </div>
-        <div class="edu-item gold">
-          <span class="edu-marker">★</span>
-          <div><strong>APEX Award 2023–24</strong> — Accenture (Europe market contributions)</div>
-        </div>
-        <div class="edu-item gold">
-          <span class="edu-marker">★</span>
-          <div><strong>ACE Award 2022</strong> — Accenture Celebrates Excellence</div>
-        </div>
-        <div class="edu-item gold">
-          <span class="edu-marker">★</span>
-          <div><strong>4× Employee of the Month</strong> — BMW project (Accenture)</div>
-        </div>
-      </div>
-    </div>
+        <div class="detail-section">
+          <div class="project-box light">
+            <h4>Measurable Impact</h4>
+            <ul>
+              <li>Achieved <strong>60% reduction in MATMAS IDoc errors,</strong> saving <strong>8+ hours</strong> of
+                manual rework during Year-End Closing by implementing targeted data validations and monitoring
+                automation.
+              </li>
+              <li>Refactored legacy programs using <strong>parallel cursors and optimized index access,</strong>
+                significantly improving runtime for high-volume batch jobs processing 50K+ records.</li>
+              <li>Built <strong>Sales Order History report</strong> serving <strong>50+ end users</strong> across Sales
+                Organizations, replacing fragmented manual data extraction processes.</li>
+            </ul>
+          </div>
 
-    <!-- 2. Certifications -->
-    <div class="edu-block">
-      <div class="edu-header">
-        <h3>Certifications</h3>
-        <span class="edu-tag">Ongoing professional development</span>
-      </div>
-      <div class="edu-list">
-        <div class="edu-item">
-          <span class="edu-marker">◆</span>
-          <div>SAP Certified — RISE with SAP Methodology & Experience</div>
-        </div>
-        <div class="edu-item">
-          <span class="edu-marker">◆</span>
-          <div>SAP Certified — Positioning SAP Business Transformation</div>
-        </div>
-        <div class="edu-item">
-          <span class="edu-marker">◆</span>
-          <div>Cloud ALM Training</div>
-        </div>
-        <div class="edu-item">
-          <span class="edu-marker">◆</span>
-          <div>CAP (Cloud Application Programming) — <em>In progress</em></div>
-        </div>
-        <div class="edu-item">
-          <span class="edu-marker">◆</span>
-          <div>SAP BTP Fundamentals</div>
-        </div>
-      </div>
-    </div>
+          <div class="project-box">
+            <h4>Interfaces & Real-Time Integration</h4>
+            <ul>
+              <li>Designed <strong>V2 OData services</strong> to stream SAP table data to an external <strong>Kafka
+                  system</strong> for real-time analytics integration, replacing legacy batch-based data transfers.</li>
+              <li>Built <strong>SAP Extractor</strong> for automated system log monitoring (BD87, SM37), eliminating
+                manual daily checks and enabling proactive issue detection.</li>
+              <li>Developed middleware recovery report to reprocess financial documents stuck due to interface errors,
+                ensuring cross-system data consistency.</li>
+              <li>Implemented <strong>automatic invoice posting</strong> triggered by Revaluation Cockpit when condition
+                record prices change, removing manual intervention from the revaluation workflow.</li>
+            </ul>
+          </div>
 
-    <!-- 3. Academic Degrees -->
-    <div class="edu-block">
-      <div class="edu-header">
-        <h3>Academic Degrees</h3>
-        <span class="edu-tag">Education History</span>
-      </div>
-      <div class="edu-list">
-        <div class="edu-item">
-          <span class="edu-marker">◆</span>
-          <div><strong>B.Tech. in Instrumentation & Electronics Engineering</strong><br>Odisha University of Technology
-            and Research (formerly CET)<br><em>2016 – 2020 | CGPA: 8.77 / 10</em></div>
+          <div class="project-box light">
+            <h4>Enhancements & Architecture</h4>
+            <ul>
+              <li>Implemented <strong>GL_ACCOUNT_MASTER_DERIVE BAdI</strong> for secondary cost element derivation
+                during
+                COELEM IDoc processing, enabling automatic G/L account mapping from master data.</li>
+              <li>Enhanced collective revaluation program <strong>ISAUTO_RMMR1MRB</strong> via User Exit to accommodate
+                custom business logic for automated price adjustments.</li>
+              <li>Developed multiple <strong>ALV-based tools</strong> for IDoc triggering, PO analysis (EKKO/EKPO/LFA1),
+                and financial document reprocessing — designed as reusable utilities adopted across the support team.
+              </li>
+              <li>Debugged standard and custom <strong>Fiori applications</strong> to resolve production issues, applied
+                SAP Notes, and stabilized critical applications to maintain system reliability.</li>
+            </ul>
+          </div>
         </div>
-        <div class="edu-item">
-          <span class="edu-marker">◆</span>
-          <div><strong>Higher Secondary — Science (PCM-IT)</strong><br>College of Basic Science and Humanities,
-            Bhubaneswar<br><em>2014 – 2016 | Percentage: 81.67%</em></div>
-        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- 4. Additional — lowest weightage -->
-    <div class="edu-block">
-      <div class="edu-header">
-        <h3>Additional Information</h3>
-        <span class="edu-tag">Specifics</span>
+    <!-- EDUCATION & DETAILS -->
+    <section class="section" id="education" role="tabpanel" aria-labelledby="tab-education">
+      <h2>Education & Details</h2>
+      <p class="section-intro">Recognition, certifications, academic background, and additional particulars.</p>
+
+      <!-- 1. Awards — highest weightage -->
+      <div class="edu-block">
+        <div class="edu-header">
+          <h3>Awards & Recognition</h3>
+          <span class="edu-tag">Recognized with 7 awards across two organizations</span>
+        </div>
+        <div class="edu-list">
+          <div class="edu-item gold">
+            <span class="edu-marker">★</span>
+            <div><strong>2× Spot Award</strong> — HCL Technologies (greenfield hyper-care excellence)</div>
+          </div>
+          <div class="edu-item gold">
+            <span class="edu-marker">★</span>
+            <div><strong>APEX Award 2023–24</strong> — Accenture (Europe market contributions)</div>
+          </div>
+          <div class="edu-item gold">
+            <span class="edu-marker">★</span>
+            <div><strong>ACE Award 2022</strong> — Accenture Celebrates Excellence</div>
+          </div>
+          <div class="edu-item gold">
+            <span class="edu-marker">★</span>
+            <div><strong>4× Employee of the Month</strong> — BMW project (Accenture)</div>
+          </div>
+        </div>
       </div>
-      <div class="edu-list">
-        <div class="edu-item">
-          <span class="edu-marker">◆</span>
-          <div><strong>Languages:</strong> English (Professional), Hindi (Native), Odia (Native)</div>
+
+      <!-- 2. Certifications -->
+      <div class="edu-block">
+        <div class="edu-header">
+          <h3>Certifications</h3>
+          <span class="edu-tag">Ongoing professional development</span>
         </div>
-        <div class="edu-item">
-          <span class="edu-marker">◆</span>
-          <div><strong>Work Auth:</strong> Eligible to work in India. Flexible for on-call support and rotational
-            schedules.</div>
-        </div>
-        <div class="edu-item">
-          <span class="edu-marker">◆</span>
-          <div><strong>Continuous Learning:</strong> Active in SAP Community. Exploring ABAP Cloud development model,
-            Joule for Developers, and BTP side-by-side extensibility. Building automation tools with Python, AutoHotkey,
-            and Power Apps.</div>
+        <div class="edu-list">
+          <div class="edu-item">
+            <span class="edu-marker">◆</span>
+            <div>SAP Certified — RISE with SAP Methodology & Experience</div>
+          </div>
+          <div class="edu-item">
+            <span class="edu-marker">◆</span>
+            <div>SAP Certified — Positioning SAP Business Transformation</div>
+          </div>
+          <div class="edu-item">
+            <span class="edu-marker">◆</span>
+            <div>Cloud ALM Training</div>
+          </div>
+          <div class="edu-item">
+            <span class="edu-marker">◆</span>
+            <div>CAP (Cloud Application Programming) — <em>In progress</em></div>
+          </div>
+          <div class="edu-item">
+            <span class="edu-marker">◆</span>
+            <div>SAP BTP Fundamentals</div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+
+      <!-- 3. Academic Degrees -->
+      <div class="edu-block">
+        <div class="edu-header">
+          <h3>Academic Degrees</h3>
+          <span class="edu-tag">Education History</span>
+        </div>
+        <div class="edu-list">
+          <div class="edu-item">
+            <span class="edu-marker">◆</span>
+            <div><strong>B.Tech. in Instrumentation & Electronics Engineering</strong><br>Odisha University of
+              Technology
+              and Research (formerly CET)<br><em>2016 – 2020 | CGPA: 8.77 / 10</em></div>
+          </div>
+          <div class="edu-item">
+            <span class="edu-marker">◆</span>
+            <div><strong>Higher Secondary — Science (PCM-IT)</strong><br>College of Basic Science and Humanities,
+              Bhubaneswar<br><em>2014 – 2016 | Percentage: 81.67%</em></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Additional — lowest weightage -->
+      <div class="edu-block">
+        <div class="edu-header">
+          <h3>Additional Information</h3>
+          <span class="edu-tag">Specifics</span>
+        </div>
+        <div class="edu-list">
+          <div class="edu-item">
+            <span class="edu-marker">◆</span>
+            <div><strong>Languages:</strong> English (Professional), Hindi (Native), Odia (Native)</div>
+          </div>
+          <div class="edu-item">
+            <span class="edu-marker">◆</span>
+            <div><strong>Work Auth:</strong> Eligible to work in India. Flexible for on-call support and rotational
+              schedules.</div>
+          </div>
+          <div class="edu-item">
+            <span class="edu-marker">◆</span>
+            <div><strong>Continuous Learning:</strong> Active in SAP Community. Exploring ABAP Cloud development model,
+              Joule for Developers, and BTP side-by-side extensibility. Building automation tools with AutoHotkey
+              and Power Apps.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <script>
-    function showSection(id) {
-      // Update nav
-      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+    function showSection(id, element, pushHistory = true) {
+      // Update tabs
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      element.classList.add('active');
+      element.setAttribute('aria-selected', 'true');
 
-      // Update sections
-      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      // Update panels
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
       document.getElementById(id).classList.add('active');
-    }
-  </script>
 
+      // Update URL hash only if explicitly requested (e.g., from a click)
+      if (pushHistory) {
+        try { history.pushState({ section: id }, '', '#' + id); } catch (e) { }
+      }
+    }
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', function (e) {
+      const id = (e.state && e.state.section) || location.hash.replace('#', '') || 'summary';
+      const btn = document.getElementById('tab-' + id);
+      if (btn) showSection(id, btn, false);
+    });
+
+    // On load navigate to hash if present
+    window.addEventListener('load', function () {
+      const hash = location.hash.replace('#', '');
+      const validSections = ['summary', 'skills', 'experience', 'education'];
+      if (hash && validSections.includes(hash)) {
+        const btn = document.getElementById('tab-' + hash);
+        if (btn) showSection(hash, btn, false);
+      }
+    });
+  </script>
 </body>
 
 </html>
