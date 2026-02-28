@@ -444,74 +444,69 @@
       font-weight: 700;
     }
 
-    /* Checklists for Education */
-    .checklist-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-
-    .checklist-card {
+    /* Education vertical blocks */
+    .edu-block {
       background: var(--light);
       border: 1px solid #d4cfc6;
-      padding: 32px;
+      padding: 32px 36px;
+      margin-bottom: 24px;
     }
 
-    .checklist-card h3 {
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #d4cfc6;
+      padding-bottom: 16px;
+    }
+
+    .edu-header h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 700;
-      margin-bottom: 6px;
+      text-align: left;
     }
 
-    .checklist-card .cl-sub {
+    .edu-tag {
       font-family: 'DM Mono', monospace;
       font-size: 10px;
       color: var(--accent);
       letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 24px;
     }
 
-    .cl-item {
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .edu-item {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .cl-box {
-      width: 16px;
-      height: 16px;
-      border: 1.5px solid var(--accent);
-      background: var(--accent);
-      flex-shrink: 0;
-      margin-top: 3px;
-      position: relative;
-    }
-
-    .cl-box.yellow {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
-
-    .cl-box::after {
-      content: '✓';
-      display: block;
-      text-align: center;
-      color: white;
-      font-size: 10px;
-      line-height: 14px;
-    }
-
-    .cl-text {
+      gap: 14px;
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.6;
       color: var(--ink);
     }
 
-    .cl-text strong {
+    .edu-marker {
+      flex-shrink: 0;
+      font-size: 10px;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    .edu-item.gold .edu-marker {
+      color: var(--gold);
+      font-size: 14px;
+      margin-top: 1px;
+    }
+
+    .edu-item strong {
       font-weight: 700;
     }
 
@@ -896,94 +891,108 @@
     </div>
   </section>
 
-  <!-- EDUCATION -->
+  <!-- EDUCATION & DETAILS -->
   <section class="section" id="education">
     <h2>Education & Details</h2>
-    <p class="section-intro">Academic background, continued learning, recognition, and additional particulars.</p>
+    <p class="section-intro">Recognition, certifications, academic background, and additional particulars.</p>
 
-    <div class="checklist-grid">
-      <div class="checklist-card">
-        <h3>Academic Degrees</h3>
-        <div class="cl-sub">Education History</div>
-
-        <div class="cl-item">
-          <div class="cl-box"></div>
-          <div class="cl-text"><strong>B.Tech. in Instrumentation & Electronics Engineering</strong><br>Odisha
-            University of Technology and Research (formerly CET)<br><em>2016 – 2020 | CGPA: 8.77 / 10</em></div>
-        </div>
-        <div class="cl-item">
-          <div class="cl-box"></div>
-          <div class="cl-text"><strong>Higher Secondary — Science (PCM-IT)</strong><br>College of Basic Science and
-            Humanities, Bhubaneswar<br><em>2014 – 2016 | Percentage: 81.67%</em></div>
-        </div>
-      </div>
-
-      <div class="checklist-card">
-        <h3>Certifications</h3>
-        <div class="cl-sub">Ongoing professional development</div>
-
-        <div class="cl-item">
-          <div class="cl-box"></div>
-          <div class="cl-text">SAP Certified — RISE with SAP Methodology & Experience</div>
-        </div>
-        <div class="cl-item">
-          <div class="cl-box"></div>
-          <div class="cl-text">SAP Certified — Positioning SAP Business Transformation</div>
-        </div>
-        <div class="cl-item">
-          <div class="cl-box"></div>
-          <div class="cl-text">Cloud ALM Training</div>
-        </div>
-        <div class="cl-item">
-          <div class="cl-box"></div>
-          <div class="cl-text">CAP (Cloud Application Programming) — <em>In progress</em></div>
-        </div>
-        <div class="cl-item">
-          <div class="cl-box"></div>
-          <div class="cl-text">SAP BTP Fundamentals</div>
-        </div>
-      </div>
-
-      <div class="checklist-card">
+    <!-- 1. Awards — highest weightage -->
+    <div class="edu-block">
+      <div class="edu-header">
         <h3>Awards & Recognition</h3>
-        <div class="cl-sub">Recognized with 7 awards</div>
-
-        <div class="cl-item">
-          <div class="cl-box yellow"></div>
-          <div class="cl-text">2× Spot Award (HCL — greenfield hyper-care)</div>
+        <span class="edu-tag">Recognized with 7 awards across two organizations</span>
+      </div>
+      <div class="edu-list">
+        <div class="edu-item gold">
+          <span class="edu-marker">★</span>
+          <div><strong>2× Spot Award</strong> — HCL Technologies (greenfield hyper-care excellence)</div>
         </div>
-        <div class="cl-item">
-          <div class="cl-box yellow"></div>
-          <div class="cl-text">APEX Award 2023–24 (Accenture — Europe market contributions)</div>
+        <div class="edu-item gold">
+          <span class="edu-marker">★</span>
+          <div><strong>APEX Award 2023–24</strong> — Accenture (Europe market contributions)</div>
         </div>
-        <div class="cl-item">
-          <div class="cl-box yellow"></div>
-          <div class="cl-text">ACE Award 2022 (Accenture Celebrates Excellence)</div>
+        <div class="edu-item gold">
+          <span class="edu-marker">★</span>
+          <div><strong>ACE Award 2022</strong> — Accenture Celebrates Excellence</div>
         </div>
-        <div class="cl-item">
-          <div class="cl-box yellow"></div>
-          <div class="cl-text">4× Employee of the Month (BMW project)</div>
+        <div class="edu-item gold">
+          <span class="edu-marker">★</span>
+          <div><strong>4× Employee of the Month</strong> — BMW project (Accenture)</div>
         </div>
       </div>
+    </div>
 
-      <div class="checklist-card">
-        <h3>Logistics & More</h3>
-        <div class="cl-sub">Specifics</div>
+    <!-- 2. Certifications -->
+    <div class="edu-block">
+      <div class="edu-header">
+        <h3>Certifications</h3>
+        <span class="edu-tag">Ongoing professional development</span>
+      </div>
+      <div class="edu-list">
+        <div class="edu-item">
+          <span class="edu-marker">◆</span>
+          <div>SAP Certified — RISE with SAP Methodology & Experience</div>
+        </div>
+        <div class="edu-item">
+          <span class="edu-marker">◆</span>
+          <div>SAP Certified — Positioning SAP Business Transformation</div>
+        </div>
+        <div class="edu-item">
+          <span class="edu-marker">◆</span>
+          <div>Cloud ALM Training</div>
+        </div>
+        <div class="edu-item">
+          <span class="edu-marker">◆</span>
+          <div>CAP (Cloud Application Programming) — <em>In progress</em></div>
+        </div>
+        <div class="edu-item">
+          <span class="edu-marker">◆</span>
+          <div>SAP BTP Fundamentals</div>
+        </div>
+      </div>
+    </div>
 
-        <div class="cl-item">
-          <div class="cl-box"></div>
-          <div class="cl-text"><strong>Languages:</strong> English (Professional), Hindi (Native), Odia (Native)</div>
+    <!-- 3. Academic Degrees -->
+    <div class="edu-block">
+      <div class="edu-header">
+        <h3>Academic Degrees</h3>
+        <span class="edu-tag">Education History</span>
+      </div>
+      <div class="edu-list">
+        <div class="edu-item">
+          <span class="edu-marker">◆</span>
+          <div><strong>B.Tech. in Instrumentation & Electronics Engineering</strong><br>Odisha University of Technology
+            and Research (formerly CET)<br><em>2016 – 2020 | CGPA: 8.77 / 10</em></div>
         </div>
-        <div class="cl-item">
-          <div class="cl-box"></div>
-          <div class="cl-text"><strong>Work Auth:</strong> Eligible to work in India. Flexible for on-call support and
-            rotational schedules.</div>
+        <div class="edu-item">
+          <span class="edu-marker">◆</span>
+          <div><strong>Higher Secondary — Science (PCM-IT)</strong><br>College of Basic Science and Humanities,
+            Bhubaneswar<br><em>2014 – 2016 | Percentage: 81.67%</em></div>
         </div>
-        <div class="cl-item">
-          <div class="cl-box"></div>
-          <div class="cl-text"><strong>Continuous Learning:</strong> Active in SAP Community. Exploring ABAP Cloud
-            development model, Joule for Developers, and BTP side-by-side extensibility. Building automation tools with
-            Python, AutoHotkey, and Power Apps.</div>
+      </div>
+    </div>
+
+    <!-- 4. Additional — lowest weightage -->
+    <div class="edu-block">
+      <div class="edu-header">
+        <h3>Additional Information</h3>
+        <span class="edu-tag">Specifics</span>
+      </div>
+      <div class="edu-list">
+        <div class="edu-item">
+          <span class="edu-marker">◆</span>
+          <div><strong>Languages:</strong> English (Professional), Hindi (Native), Odia (Native)</div>
+        </div>
+        <div class="edu-item">
+          <span class="edu-marker">◆</span>
+          <div><strong>Work Auth:</strong> Eligible to work in India. Flexible for on-call support and rotational
+            schedules.</div>
+        </div>
+        <div class="edu-item">
+          <span class="edu-marker">◆</span>
+          <div><strong>Continuous Learning:</strong> Active in SAP Community. Exploring ABAP Cloud development model,
+            Joule for Developers, and BTP side-by-side extensibility. Building automation tools with Python, AutoHotkey,
+            and Power Apps.</div>
         </div>
       </div>
     </div>
